@@ -11,7 +11,7 @@ namespace NeuralDotNet
     }
     public class Network
     {
-        public static TransferFunctions tF = TransferFunctions.LogSigmoid;
+        public static TransferFunctions tF = TransferFunctions.LogSigmoid; //one used commonly
         int numInputs;
         int numHidden;
         int perHidden;
@@ -23,15 +23,18 @@ namespace NeuralDotNet
         int numLayers;
         Layer[] layers;
 
-        public Network(int initNumInputs, int initNumHidden, int initPerHidden, int initNumOutputs)
+        public Network(int _NumInputs, int _NumHidden, int _PerHidden, int _NumOutputs)
         {
-            numInputs = initNumInputs;
-            numHidden = initNumHidden;
-            perHidden = initPerHidden;
-            numOutputs = initNumOutputs;
+            //Assignment to global variables is important as to use them in other methods present here.
+            //same is done in other two files
+            numInputs = _NumInputs;
+            numHidden = _NumHidden;
+            perHidden = _PerHidden; //neurons per hidden layer
+            numOutputs = _NumOutputs;
             numNeurons = numInputs + (numHidden * perHidden) + numOutputs;
+            //calculating total weights
             numWeights = ((numInputs + 1) * perHidden) + ((perHidden + 1) * perHidden) * (numHidden - 1) + ((perHidden + 1) * numOutputs);
-            numLayers = numHidden + 1;
+            numLayers = numHidden + 1; // all hidden layers and one output layer
             layers = new Layer[numLayers];
 
             int iCurLayer = 0;

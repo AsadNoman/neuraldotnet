@@ -10,7 +10,7 @@ namespace NeuralDotNet
 		double[] weights;
 		public Neuron(int initNumInputs)
 		{
-			numInputs = initNumInputs + 1; 
+			numInputs = initNumInputs + 1; // one for BIAS
 			weights = new double[numInputs];
 
             for (int i = 0; i < numInputs; i++)

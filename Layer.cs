@@ -12,7 +12,7 @@ namespace NeuralDotNet
 		public Layer(int initNumNeurons, int initInputsPerNeuron)
 		{
 			numNeurons = initNumNeurons;
-			inputsPerNeuron = initInputsPerNeuron;
+			inputsPerNeuron = initInputsPerNeuron; 
 	
 			neurons = new Neuron[numNeurons];
             for (int i = 0; i < numNeurons; i++)
